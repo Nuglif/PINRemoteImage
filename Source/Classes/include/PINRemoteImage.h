@@ -23,3 +23,4 @@
 #import "PINProgressiveImage.h"
 #import "PINURLSessionManager.h"
 #import "PINRequestRetryStrategy.h"
+#import "PINImage+WebP.h"
