@@ -6,17 +6,11 @@
 //  Copyright © 2017 Pinterest. All rights reserved.
 //
 
-#if PIN_WEBP
-
 #import "PINWebPAnimatedImage.h"
 
 #import "NSData+ImageDetectors.h"
 
-#if SWIFT_PACKAGE
 @import libwebp;
-#else
-#import "webp/demux.h"
-#endif
 
 @interface PINWebPAnimatedImage ()
 {
@@ -398,5 +392,3 @@ static void releaseData(void *info, const void *data, size_t size)
 }
 
 @end
-
-#endif

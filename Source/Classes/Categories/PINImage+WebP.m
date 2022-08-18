@@ -8,13 +8,7 @@
 
 #import "PINImage+WebP.h"
 
-#if PIN_WEBP
-
-#if SWIFT_PACKAGE
 @import libwebp;
-#else
-#import "webp/decode.h"
-#endif
 
 @implementation PINImage (PINWebP)
 
@@ -108,5 +102,3 @@ static enum WEBP_CSP_MODE webp_cs_mode_from_cg_bitmap_info(CGBitmapInfo info, BO
 }
 
 @end
-
-#endif

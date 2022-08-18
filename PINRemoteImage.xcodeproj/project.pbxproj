@@ -103,11 +103,8 @@
 		939546C02220AF84006031BB /* PINRemoteImageManagerConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 939546BE2220AF84006031BB /* PINRemoteImageManagerConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		939546C12220AF84006031BB /* PINRemoteImageManagerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 939546BF2220AF84006031BB /* PINRemoteImageManagerConfiguration.m */; };
 		94B96FB328AD6B2E0071CF7A /* libwebp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B96FAC28AD6A530071CF7A /* libwebp.xcframework */; };
-		94B96FB428AD6B2E0071CF7A /* libwebp.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B96FAC28AD6A530071CF7A /* libwebp.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94B96FB628AD6B2F0071CF7A /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B96FAA28AD6A520071CF7A /* PINCache.xcframework */; };
-		94B96FB728AD6B300071CF7A /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B96FAA28AD6A520071CF7A /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94B96FB828AD6B310071CF7A /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B96FAB28AD6A530071CF7A /* PINOperation.xcframework */; };
-		94B96FB928AD6B310071CF7A /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B96FAB28AD6A530071CF7A /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9DD47F9D1C699F4B00F12CA0 /* PINButton+PINRemoteImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD47F991C699F4B00F12CA0 /* PINButton+PINRemoteImage.m */; };
 		9DD47F9F1C699F4B00F12CA0 /* PINImageView+PINRemoteImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD47F9B1C699F4B00F12CA0 /* PINImageView+PINRemoteImage.m */; };
 		9DD47FA41C699FDC00F12CA0 /* PINImage+DecodedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DD47FA01C699FDC00F12CA0 /* PINImage+DecodedImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -202,19 +199,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		94B96FB528AD6B2E0071CF7A /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				94B96FB728AD6B300071CF7A /* PINCache.xcframework in Embed Frameworks */,
-				94B96FB428AD6B2E0071CF7A /* libwebp.xcframework in Embed Frameworks */,
-				94B96FB928AD6B310071CF7A /* PINOperation.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -733,7 +717,6 @@
 				F1B918CC1BCF239200710963 /* Sources */,
 				F1B918CD1BCF239200710963 /* Frameworks */,
 				F1B918CE1BCF239200710963 /* Headers */,
-				94B96FB528AD6B2E0071CF7A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1291,6 +1274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1298,21 +1282,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/libwebp/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/libwebp/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Checkouts/libwebp/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/PINCache/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/PINCache/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Checkouts/PINCache/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/webp",
+					"$(PROJECT_DIR)/Carthage/Build/",
 				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"PIN_WEBP=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1330,6 +1303,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1337,21 +1311,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/libwebp/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/libwebp/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Checkouts/libwebp/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/PINCache/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/PINCache/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Checkouts/PINCache/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/webp",
+					"$(PROJECT_DIR)/Carthage/Build/",
 				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"PIN_WEBP=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (

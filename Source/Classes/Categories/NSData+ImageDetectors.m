@@ -8,13 +8,7 @@
 
 #import "NSData+ImageDetectors.h"
 
-#if PIN_WEBP
-    #if SWIFT_PACKAGE
-        @import libwebp;
-    #else
-        #import "webp/demux.h"
-    #endif
-#endif
+@import libwebp;
 
 @implementation NSData (PINImageDetectors)
 
