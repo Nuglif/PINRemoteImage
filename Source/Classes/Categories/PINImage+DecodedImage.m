@@ -148,7 +148,7 @@ NSData * __nullable PINImagePNGRepresentation(PINImage * __nonnull image) {
         CFRelease(imageSourceRef);
     }
     
-    if (!decodedImage) {
+    if (!decodedImage && [data pin_isWebP]) {
         return [PINImage pin_imageWithWebPData:data];
     }
 
